@@ -51,6 +51,7 @@ npm i cors : Cross Origin Resource Sharing : a middleware to Connect/ Express
 npm i express : a framework for creating the Routing of our application
 npm i mongoose : to creat models of our POST
 npm i nodemon : auto reset the server
+npm i bcryptjs jsonwebtoken
 
 ##Client side##
 npm i @material-ui/core : ui kit used in this project
@@ -58,6 +59,7 @@ npm i axios : for making api request
 npm i moment : library working with time and date
 npm i react-file-base
 npm i redux redux-thunk : asyncronous actions with redux
+npm i jwt-decode react-google-login
 
 ---
 
