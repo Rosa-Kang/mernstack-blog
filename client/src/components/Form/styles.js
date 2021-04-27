@@ -7,9 +7,18 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
-    padding: theme.spacing(2),
+    position: "fixed",
+    background: 'rgba(0,0,0,0.5)',
+    left: "50%",
+    transform: "translate(-50%, 0)",
+    padding: "3em",
+    width: "40%",
+    top: "20%"
   },
   form: {
+    background: "white",
+    borderRadius: '25px',
+    padding: '4em',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
