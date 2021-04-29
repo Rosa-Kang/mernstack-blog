@@ -14,7 +14,11 @@ export default makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     color: 'white',
-    fontFamily: 'Gloria Hallelujah'
+    textDecoration: 'none',
+  },
+  logo: {
+    fontFamily: 'Gloria Hallelujah',
+    fontSize: '1.5em'
   },
   heading: {
     color: 'white',
@@ -26,14 +30,15 @@ export default makeStyles((theme) => ({
     marginRight: '25px',
   },
   rightBtn :{
+    color: 'white',
     marginRight: '10px',
     background: '#38b2ac',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    width: '250px'
   },
   userName: {
     display: 'flex',

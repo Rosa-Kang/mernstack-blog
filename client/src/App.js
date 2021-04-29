@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import { getPosts } from './actions/posts';
 
+import useStyles from './styles';
 import Auth from './components/Auth/Auth';
 import NavBar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 
 const App =() => {
-    const [currentId, setCurrentId] = useState(null);
-    const dispatch = useDispatch(); 
-  
-  useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch])
+    const classes = useStyles();
 
     return (
     <BrowserRouter>
-    <Container /* className={"toggle" + (isShowing ? "On" : "Off")} */>
-        <NavBar currentId = {currentId}  setCurrentId = {setCurrentId} />
+    <Container className={classes.app}/* className={"toggle" + (isShowing ? "On" : "Off")} */>
+        <NavBar />
         <Switch>
-         <Route path= "/" exact component={Home} />
-         <Route path= "/auth" component={Auth} />
+         <Route  exact path= "/"  component={Home} />
+         <Route  path= "/auth" component={Auth} exact/>
         </Switch>
      </Container>
     </BrowserRouter>

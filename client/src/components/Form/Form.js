@@ -11,22 +11,24 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
    const classes = useStyles();
    const dispatch = useDispatch();
    const [postData, setPostData] = useState({ creator: '', title:' ', message: ' ', tags: ' ', selectedField:' '})
+   // const user = JSON.parse(localStorage.getItem('profile'))
 
  useEffect (() => {
       if(post) setPostData(post);
    }, [post])
+   
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   const handleSubmit =(e)=> {
-      e.preventDefault();
-
-      if(currentId) {
-         dispatch(updatePost(currentId, postData));
-         console.log(postData);
-      } else {
-         dispatch(createPost(postData));
-      }
+    if (currentId === 0) {
+      dispatch(createPost(postData));
       clear();
-   }
+    } else {
+      dispatch(updatePost(currentId, postData));
+      clear();
+    }
+  };
+
 
    const clear = () => {
       setCurrentId(null)

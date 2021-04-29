@@ -7,13 +7,14 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
+    zIndex: "9999",
     position: "fixed",
     background: 'rgba(0,0,0,0.5)',
     left: "50%",
     transform: "translate(-50%, 0)",
     padding: "3em",
     width: "40%",
-    top: "20%"
+    top: "10%"
   },
   form: {
     background: "white",
