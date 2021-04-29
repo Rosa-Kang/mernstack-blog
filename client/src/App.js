@@ -3,9 +3,9 @@ import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import useStyles from './styles';
-import Auth from './components/Auth/Auth';
 import NavBar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import Auth from './components/Auth/Auth';
 
 const App =() => {
     const classes = useStyles();

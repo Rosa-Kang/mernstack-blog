@@ -3,7 +3,7 @@ import { Posts } from '../Posts/Posts';
 import { Container, Grow, Grid } from '@material-ui/core';
 import { getPosts } from '../../actions/posts';
 import { useDispatch } from 'react-redux';
-
+import Hero from '../Hero/Hero';
 
 const Home = () => {
     const [currentId, setCurrentId] = useState(null);
@@ -15,6 +15,8 @@ const Home = () => {
 
 
     return (
+        <>
+            <Hero />
             <Grow in>
                 <Container>
                     <Grid>
@@ -22,6 +24,7 @@ const Home = () => {
                     </Grid> 
                 </Container>
             </Grow>
+        </>
     )
 }
 

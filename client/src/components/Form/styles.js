@@ -31,4 +31,10 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: 10,
   },
+  pleaseLogin: {
+    padding:"2px"
+  },
+  buttonClose: {
+    marginTop: "2px"
+  }
 }));

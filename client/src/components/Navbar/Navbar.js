@@ -41,12 +41,17 @@ const Navbar =()=> {
 
 
   const openModal = () => {
-    setIsShowing(true);
+    isShowing?
+    setIsShowing(false) : setIsShowing(true);
   };
+
+  const closeModal = () => {
+    setIsShowing(false);
+  }
  
   return (
     <AppBar className={classes.appBar} position="static" color='inherit' maxWidth="xs">            
-            <Link to="/" className={classes.left}>
+            <Link to="/" className={classes.left} onClick={closeModal}>
               <img className={classes.image} src={logo} alt="memories" height='60'/>
               <Typography className={classes.logo}>flymango</Typography>
             </Link>
@@ -57,7 +62,7 @@ const Navbar =()=> {
             <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
             <Button onClick={logout} variant="contained" className={classes.rightBtn} >Logout</Button>
           </div>
-        ) : (<Link style={{ textDecoration: 'none' }} to="/auth" ><Button className={classes.rightBtn} variant="contained" component="span" >Sign in</Button></Link>)}
+        ) : (<Link style={{ textDecoration: 'none' }} to="/auth" ><Button onClick={closeModal} className={classes.rightBtn} variant="contained" component="span" >Sign in</Button></Link>)}
             <Button onClick={openModal} className={classes.rightBtn} variant="contained" color="primary" component="span">Add post</Button>
             </Toolbar>
            {isShowing && <Form setIsShowing={setIsShowing} currentId = {currentId}  setCurrentId = {setCurrentId} />}
