@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
   },
   question: {
     fontFamily: "Gloria Hallelujah",
+    fontSize: "1.3vw",
     padding: "20px 0px"
   }, 
    rightBtn :{

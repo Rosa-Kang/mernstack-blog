@@ -13,7 +13,7 @@ const App =() => {
     return (
     <BrowserRouter>
     <Container className={classes.app}/* className={"toggle" + (isShowing ? "On" : "Off")} */>
-        <NavBar />
+        <NavBar/>
         <Switch>
          <Route  exact path= "/"  component={Home} />
          <Route  path= "/auth" component={Auth} exact/>
