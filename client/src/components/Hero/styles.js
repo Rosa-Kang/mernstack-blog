@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     justifyContent:"space-around",
     alignItems:"center",
     display: "flex",
-    margin: "2vw"
+    margin: "6% auto"
   },
   question: {
     fontFamily: "Gloria Hallelujah",
@@ -26,5 +26,31 @@ export default makeStyles((theme) => ({
   plane: {
     maxWidth: "486px",
     border: "none",
-  }
+  },
+//hero card 
+
+ root: {
+    maxWidth: "60%",
+    margin: "4% auto"
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: "red",
+  },
+
+
+
 }));
