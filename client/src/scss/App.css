@@ -1,4 +1,4 @@
-@media only screen and (min-width: 760px) {
+@media only screen and (min-width: 700px) {
   .MuiAppBar-root {
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;
@@ -15,18 +15,29 @@
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .makeStyles-question-12 {
-    font-size: 3vw !important;
+  #question {
+    font-size: 2vw !important;
+  }
+  #form {
+    padding: 3em;
+  }
+  #form-div {
+    padding: 3em;
+    left: 50%;
+    width: 40%;
   }
 }
 
 @media only screen and (min-width: 1025px) {
-  .makeStyles-hero-11 {
+  #hero {
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;
         -ms-flex-direction: row !important;
             flex-direction: row !important;
     margin: 6% auto;
+  }
+  #question {
+    font-size: 2.4vw !important;
   }
 }
 /*# sourceMappingURL=App.css.map */

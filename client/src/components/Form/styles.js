@@ -12,14 +12,14 @@ export default makeStyles((theme) => ({
     background: 'rgba(0,0,0,0.5)',
     left: "50%",
     transform: "translate(-50%, 0)",
-    padding: "3em",
-    width: "40%",
+    padding: "1em",
+    width: "60%",
     top: "10%"
   },
   form: {
     background: "white",
-    borderRadius: '25px',
-    padding: '4em',
+    borderRadius: '20px',
+    padding: '1em',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',

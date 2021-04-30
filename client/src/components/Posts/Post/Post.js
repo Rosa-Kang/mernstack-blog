@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
@@ -7,10 +7,12 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 
 import { likePost, deletePost } from '../../../actions/posts';
+import Edit from '../../Form/Edit';
 import useStyles from './styles';
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId, currentId }) => {
   const dispatch = useDispatch();
+  const [edit, setEdit] = useState(false);
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
   
@@ -25,10 +27,15 @@ const Post = ({ post }) => {
     }
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
-
-
+  
+  const openToEdit = (e) => {
+    e.preventDefault();
+    !edit ?
+    setEdit(true):setEdit(false);
+  }
   return (
-    <Card className={classes.card}>
+    <>
+    <Card className={classes.card} onClick={openToEdit}>
       <CardMedia className={classes.media} title={post.title} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.name}</Typography>
@@ -52,6 +59,8 @@ const Post = ({ post }) => {
         )}        
       </CardActions>
     </Card>
+    {edit && <Edit edit={edit} setEdit={setEdit} currentId = {currentId}  setCurrentId = {setCurrentId} />}    
+    </>
   );
 };
 

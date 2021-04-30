@@ -42,9 +42,9 @@ const Hero = () => {
     return (
         <>
     { !visible? (
-        <Container className={classes.hero}>
+        <Container className={classes.hero} id="hero">
         <Grid className={classes.heroLeft}>
-            <Typography className={classes.question}>Where do you want to go?</Typography>
+            <Typography className={classes.question} id="question">Where do you want to go?</Typography>
             <Button onClick={movieSwitch} className={classes.rightBtn} variant="contained" component="span" >Let me pick one for you!</Button>
         </Grid>
         <Grid>

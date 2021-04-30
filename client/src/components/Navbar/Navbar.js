@@ -45,7 +45,7 @@ const Navbar =()=> {
   };
 
   const closeModal = () => {
-    setIsShowing(false);
+    setIsShowing(false)
   }
  
   return (
