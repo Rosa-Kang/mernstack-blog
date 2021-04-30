@@ -18,22 +18,20 @@ import ReplyIcon from '@material-ui/icons/Reply';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
-
 const Hero = () => {
     const posts = useSelector((state) => state.posts);
     const classes = useStyles();
-    const [visible, setVisible] = useState(false)
-    const [plane, setPlane] = useState(false)
+    const [visible, setVisible] = useState(false);
+    const [plane, setPlane] = useState(false);
 
-    const pickedCard = posts[Math.floor(Math.random()*posts.length)]
-    console.log(pickedCard);
+    const pickedCard = posts[Math.floor(Math.random()*posts.length)];
 
     const movieSwitch =() => {
         const turnOn = () => setVisible(true);
 
         plane? 
         setPlane(false) : setPlane(true)
-        setTimeout(turnOn, 7000)
+        setTimeout(turnOn, 6000)
     }
 
     const turnOff = () => {

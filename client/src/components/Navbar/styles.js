@@ -5,9 +5,9 @@ export default makeStyles((theme) => ({
   appBar: {
     background: '#38b2ac',   
     margin: '30px 0',
-    flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
+    flexDirection: 'colum',
     justifyContent: 'space-between'
   },
   left: {
@@ -23,17 +23,11 @@ export default makeStyles((theme) => ({
   heading: {
     color: 'white',
   },
-  image: {
-    marginLeft: '15px',
-  },
-  right: {
-    marginRight: '25px',
-  },
   rightBtn :{
     color: 'white',
-    marginRight: '10px',
     background: '#38b2ac',
     textAlign: 'center',
+    margin: "0px 5px"
   },
   profile: {
     display: 'flex',

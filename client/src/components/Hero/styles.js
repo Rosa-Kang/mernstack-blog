@@ -10,16 +10,16 @@ export default makeStyles((theme) => ({
     justifyContent:"space-around",
     alignItems:"center",
     display: "flex",
-    margin: "6% auto"
+    flexDirection: 'column',
   },
   question: {
     fontFamily: "Gloria Hallelujah",
-    fontSize: "1.3vw",
+    textAlign: "center",
+    fontSize: "7vw",
     padding: "20px 0px"
   }, 
    rightBtn :{
     color: 'white',
-    marginRight: '10px',
     background: '#38b2ac',
     textAlign: 'center',
   },
@@ -30,7 +30,7 @@ export default makeStyles((theme) => ({
 //hero card 
 
  root: {
-    maxWidth: "60%",
+    maxWidth: "50%",
     margin: "4% auto"
   },
   media: {

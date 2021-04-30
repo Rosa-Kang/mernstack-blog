@@ -18,7 +18,6 @@ const Navbar =()=> {
   const [isShowing, setIsShowing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
-  // eslint-disable-next-line
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
 
@@ -33,7 +32,7 @@ const Navbar =()=> {
 
     if (token) {
       const decodedToken = decode(token);
-
+      // eslint-disable-next-line
       if (decodedToken.exp * 1000 < new Date().getTime())logout();
     }
     setUser(JSON.parse(localStorage.getItem('profile')));
@@ -50,7 +49,7 @@ const Navbar =()=> {
   }
  
   return (
-    <AppBar className={classes.appBar} position="static" color='inherit' maxWidth="xs">            
+    <AppBar className={classes.appBar} position="static" color='inherit' maxwidth="xs">            
             <Link to="/" className={classes.left} onClick={closeModal}>
               <img className={classes.image} src={logo} alt="memories" height='60'/>
               <Typography className={classes.logo}>flymango</Typography>

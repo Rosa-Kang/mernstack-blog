@@ -2,17 +2,16 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import useStyles from './styles';
+import './scss/App.css'
 import NavBar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 
 const App =() => {
-    const classes = useStyles();
 
     return (
     <BrowserRouter>
-    <Container className={classes.app}/* className={"toggle" + (isShowing ? "On" : "Off")} */>
+    <Container /* className={"toggle" + (isShowing ? "On" : "Off")} */>
         <NavBar/>
         <Switch>
          <Route  exact path= "/"  component={Home} />

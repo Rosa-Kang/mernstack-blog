@@ -1,0 +1,32 @@
+@media only screen and (min-width: 760px) {
+  .MuiAppBar-root {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+  }
+  .makeStyles-hero-36, .makeStyles-hero-13 {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 0;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .makeStyles-question-12 {
+    font-size: 3vw !important;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .makeStyles-hero-11 {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    margin: 6% auto;
+  }
+}
+/*# sourceMappingURL=App.css.map */
