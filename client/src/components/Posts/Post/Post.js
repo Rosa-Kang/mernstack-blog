@@ -10,7 +10,7 @@ import { likePost, deletePost } from '../../../actions/posts';
 import Edit from '../../Form/Edit';
 import useStyles from './styles';
 
-const Post = ({ post, setCurrentId, currentId }) => {
+const Post = ({ post, currentId }) => {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const classes = useStyles();
@@ -59,7 +59,7 @@ const Post = ({ post, setCurrentId, currentId }) => {
         )}        
       </CardActions>
     </Card>
-    {edit && <Edit edit={edit} setEdit={setEdit} currentId = {currentId}  setCurrentId = {setCurrentId} />}    
+    {edit && <Edit edit={edit} setEdit={setEdit} post={post} currentId = {currentId} />}    
     </>
   );
 };

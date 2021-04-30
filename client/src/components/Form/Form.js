@@ -19,10 +19,13 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
 
    const clear = () => {
       setCurrentId(0)
-      setIsShowing(false)
       setPostData({ title:' ', message: ' ', tags: ' ', selectedField:' '});
    }
    
+   const close =() =>{
+     setIsShowing(false)
+   }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -48,7 +51,7 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
         <Typography className={classes.pleaseLogin}>
           Please Sign In to create your own memories and like other's memories.
         </Typography>
-        <Button className={classes.buttonClose} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Close</Button>
+        <Button className={classes.buttonClose} variant="contained" color="secondary" size="small" onClick={close} fullWidth>Close</Button>
       </form>        
       </Paper>
     );
@@ -64,7 +67,7 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
         <div className={classes.fileInput}>
         <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Close</Button>
+        <Button variant="contained" color="secondary" size="small" onClick={close} fullWidth>Close</Button>
       </form>
     </Paper>
    );

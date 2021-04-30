@@ -1,53 +1,58 @@
-import React, { useState , useEffect } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
-import FileBase from 'react-file-base64';
-import { useDispatch , useSelector } from 'react-redux';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import CloseIcon from '@material-ui/icons/Close';
+import { Paper, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
+import moment from 'moment';
+// import { useDispatch } from 'react-redux';
 
-import useStyles from './styles';
-import { createPost , updatePost } from '../../actions/posts';
+import useStyles from './editStyle';
+import Form from './Form';
 
-const Edit = ({currentId, setCurrentId, edit, setEdit}) => {
-   const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' '})
-   const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
-   const dispatch = useDispatch();
-   const classes = useStyles();
-   const user = JSON.parse(localStorage.getItem('profile'))
+const Edit = ({setEdit, post}) => {
+  const classes = useStyles();
+  const [box, setBox] = useState(false);
+  const user = JSON.parse(localStorage.getItem('profile'));
 
-     useEffect (() => {
-      if(post) setPostData(post);
-      }, [post])
-
-   const clear = () => {
-      setCurrentId(0)
+  const detailClose = () => {
       setEdit(false);
-      setPostData({ title:' ', message: ' ', tags: ' ', selectedField:' '});
    }
-   
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    if (currentId === 0) {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
-      clear();
-    } else {
-      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
-      clear();
-    }
-  };
+const boxOpen = () =>{
+    !box ?
+    setBox(true) : setBox(false)
+    console.log(box);
+}
+
+  if(!box ) {
+   return (
+    <Paper className={classes.editPaper} id="editPaper">
+    <Card className={classes.card}>
+      <CardMedia className={classes.editMedia} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={post.title} />
+      <div className={classes.editOverlay}>
+        <Typography variant="h6">{post.name}</Typography>
+        <Typography className={classes.timeAgo} variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+      </div>
+      <div className={classes.editOverlay2}>
+        <Button style={{ color: 'white' }} size="small" onClick={detailClose}><CloseIcon fontSize="default" /></Button>
+      </div>
+      <div className={classes.details}>
+        <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+      </div>
+      <Typography className={classes.editTitle} gutterBottom variant="h5" component="h2">{post.title}</Typography>
+      <CardContent>
+        <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
+      </CardContent>
+    </Card>
+   {!user?.result?.name ?
+   (<Link to="/auth" style={{ textDecoration: 'none' }}><Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Sign in to edit</Button></Link>
+   ):
+  (<Button className={classes.edit} variant="contained" size="small" onClick={boxOpen} maxWidth="xs">Edit</Button>
+  )}
+  </Paper>
+   )}
   return (
-   <Paper className={classes.paper}>
-      <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
-        <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} />
-        <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
-        <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
-        <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
-        <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
-        <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
-      </form>
-    </Paper>
-   );
-};
-
+    <Form post={post}/>
+  )
+ };
+ 
 export default Edit;
