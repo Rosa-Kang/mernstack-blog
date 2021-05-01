@@ -10,7 +10,7 @@ import { likePost, deletePost } from '../../../actions/posts';
 import Edit from '../../Form/Edit';
 import useStyles from './styles';
 
-const Post = ({ post, currentId, setIsShowing }) => {
+const Post = ({ post, currentId }) => {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const classes = useStyles();
@@ -28,24 +28,23 @@ const Post = ({ post, currentId, setIsShowing }) => {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
   };
   
-  const openToEdit = (e) => {
-    e.preventDefault();
-    !edit ?
-    setEdit(true):setEdit(false);
+  const openToEdit = () => {
+    edit ?
+    setEdit(false):setEdit(true);
   }
   return (
     <>
-    <Card className={classes.card} onClick={openToEdit}>
-      <CardMedia className={classes.media} title={post.title} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
-      <div className={classes.overlay}>
+    <Card className={classes.card}>
+      <CardMedia onClick={openToEdit} className={classes.media} title={post.title} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} />
+      <div className={classes.overlay} onClick={openToEdit}>
         <Typography variant="h6">{post.name}</Typography>
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
-      <div className={classes.details}>
+      <div className={classes.details} onClick={openToEdit}>
         <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
       </div>
       <Typography className={classes.title} gutterBottom variant="h5" component="h2">{post.title}</Typography>     
-      <CardContent>
+      <CardContent onClick={openToEdit}>
       <Typography  variant="body2" color="textSecondary" component="p">{post.message}</Typography>        
       </CardContent>
       <CardActions className={classes.cardActions}>
@@ -59,7 +58,7 @@ const Post = ({ post, currentId, setIsShowing }) => {
         )}        
       </CardActions>
     </Card>
-    {edit && <Edit edit={edit} setEdit={setEdit} post={post} currentId = {currentId} setIsShowing={setIsShowing}/>}    
+    {edit && <Edit edit={edit} setEdit={setEdit} post={post} currentId = {currentId} />}    
     </>
   );
 };

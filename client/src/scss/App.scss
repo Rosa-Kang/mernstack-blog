@@ -20,7 +20,7 @@
     #form-div {
         padding: 3em;
         left: 50%;
-        width: 40%;
+        width: 40% !important;
     }
 }
 
@@ -35,5 +35,8 @@
     #editPaper {
         width: 40%;
         padding: 3em;
+    }
+    #form-div {
+        width: 36% !important;
     }
 }

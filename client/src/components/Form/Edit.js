@@ -1,22 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
 import { Paper, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import moment from 'moment';
-// import { useDispatch } from 'react-redux';
 
 import useStyles from './editStyle';
-import Form from './Form';
 
-const Edit = ({setEdit, post, setIsShowing}) => {
+const Edit = ({setEdit, post }) => {
   const classes = useStyles();
-  const [box, setBox] = useState(false);
   const user = JSON.parse(localStorage.getItem('profile'));
 
-  const detailClose = () => setEdit(false)
-  const openBox = () => setBox(true);
+  const detailClose = () => setEdit(false);
 
-  if(!box ) {
    return (
     <Paper className={classes.editPaper} id="editPaper">
     <Card className={classes.card}>
@@ -39,13 +34,10 @@ const Edit = ({setEdit, post, setIsShowing}) => {
    {!user?.result?.name ?
    (<Link to="/auth" style={{ textDecoration: 'none' }}><Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Sign in to edit</Button></Link>
    ):
-  (<Button className={classes.edit} variant="contained" size="small" onClick={openBox} maxWidth="xs">Edit</Button>
+  (<Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Edit</Button>
   )}
   </Paper>
-   )}
-  return (
-    <Form post={post} />
-  )
- };
- 
+);
+}
+
 export default Edit;

@@ -6,7 +6,7 @@ import { useDispatch , useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPost , updatePost } from '../../actions/posts';
 
-const Form =({ currentId, setCurrentId, setIsShowing })=> {
+const Form =({ currentId, setCurrentId, controlModal })=> {
    const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' '})
    const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
    const dispatch = useDispatch();
@@ -34,8 +34,6 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
     }
   };
 
-  const close = () => setIsShowing(false);
-
 if (!user?.result?.name) {
     return (
       <Paper id="form-div" className={classes.paper} >
@@ -49,7 +47,7 @@ if (!user?.result?.name) {
         <Typography className={classes.pleaseLogin}>
           Please Sign In to create your own memories and like other's memories.
         </Typography>
-        <Button className={classes.buttonClose} onClick={close} variant="contained" color="secondary" size="small" fullWidth>Close</Button>
+        <Button className={classes.buttonClose} onClick={controlModal} variant="contained" color="secondary" size="small" fullWidth>Close</Button>
       </form>        
       </Paper>
     );
@@ -65,7 +63,7 @@ if (!user?.result?.name) {
         <div className={classes.fileInput}>
         <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" onClock={close} color="secondary" size="small" fullWidth>Close</Button>
+        <Button variant="contained" onClock={controlModal} color="secondary" size="small" fullWidth>Close</Button>
       </form>
     </Paper>
    );
