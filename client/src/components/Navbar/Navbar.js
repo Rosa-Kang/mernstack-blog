@@ -9,13 +9,12 @@ import Form from '../Form/Form';
 import useStyles from './styles';
 import logo from '../../images/flymangologo.png';
 
-const Navbar =()=> {
+const Navbar =(isShowing, setIsShowing)=> {
   const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const [isShowing, setIsShowing] = useState(false);
   const [currentId, setCurrentId] = useState(null);
 
   const logout = () => {
@@ -64,7 +63,7 @@ const Navbar =()=> {
         ) : (<Link style={{ textDecoration: 'none' }} to="/auth" ><Button onClick={closeModal} className={classes.rightBtn} variant="contained" component="span" >Sign in</Button></Link>)}
             <Button onClick={openModal} className={classes.rightBtn} variant="contained" color="primary" component="span">Add post</Button>
             </Toolbar>
-           {isShowing && <Form setIsShowing={setIsShowing} currentId = {currentId}  setCurrentId = {setCurrentId} />}
+           {isShowing && <Form isShowing={isShowing} setIsShowing={setIsShowing} currentId = {currentId}  setCurrentId = {setCurrentId} />}
     </AppBar>
   );
 }

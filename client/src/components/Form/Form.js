@@ -21,10 +21,6 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
       setCurrentId(0)
       setPostData({ title:' ', message: ' ', tags: ' ', selectedField:' '});
    }
-   
-   const close =() =>{
-     setIsShowing(false)
-   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +34,9 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
     }
   };
 
-  if (!user?.result?.name) {
+  const close = () => setIsShowing(false);
+
+if (!user?.result?.name) {
     return (
       <Paper id="form-div" className={classes.paper} >
         <form id="form" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
@@ -51,14 +49,14 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
         <Typography className={classes.pleaseLogin}>
           Please Sign In to create your own memories and like other's memories.
         </Typography>
-        <Button className={classes.buttonClose} variant="contained" color="secondary" size="small" onClick={close} fullWidth>Close</Button>
+        <Button className={classes.buttonClose} onClick={close} variant="contained" color="secondary" size="small" fullWidth>Close</Button>
       </form>        
       </Paper>
     );
   }
   
    return (
-       <Paper className={classes.paper}>
+       <Paper className={classes.paper} >
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
@@ -67,7 +65,7 @@ const Form =({ currentId, setCurrentId, setIsShowing })=> {
         <div className={classes.fileInput}>
         <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" color="secondary" size="small" onClick={close} fullWidth>Close</Button>
+        <Button variant="contained" onClock={close} color="secondary" size="small" fullWidth>Close</Button>
       </form>
     </Paper>
    );

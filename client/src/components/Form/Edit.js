@@ -8,20 +8,13 @@ import moment from 'moment';
 import useStyles from './editStyle';
 import Form from './Form';
 
-const Edit = ({setEdit, post}) => {
+const Edit = ({setEdit, post, setIsShowing}) => {
   const classes = useStyles();
   const [box, setBox] = useState(false);
   const user = JSON.parse(localStorage.getItem('profile'));
 
-  const detailClose = () => {
-      setEdit(false);
-   }
-
-const boxOpen = () =>{
-    !box ?
-    setBox(true) : setBox(false)
-    console.log(box);
-}
+  const detailClose = () => setEdit(false)
+  const openBox = () => setBox(true);
 
   if(!box ) {
    return (
@@ -46,12 +39,12 @@ const boxOpen = () =>{
    {!user?.result?.name ?
    (<Link to="/auth" style={{ textDecoration: 'none' }}><Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Sign in to edit</Button></Link>
    ):
-  (<Button className={classes.edit} variant="contained" size="small" onClick={boxOpen} maxWidth="xs">Edit</Button>
+  (<Button className={classes.edit} variant="contained" size="small" onClick={openBox} maxWidth="xs">Edit</Button>
   )}
   </Paper>
    )}
   return (
-    <Form post={post}/>
+    <Form post={post} />
   )
  };
  
