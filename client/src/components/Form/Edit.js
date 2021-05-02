@@ -11,7 +11,7 @@ const Edit = ({setEdit, post }) => {
   const classes = useStyles();
   const [editPost , setEditPost] = useState(false)
   const user = JSON.parse(localStorage.getItem('profile'));
-
+  
   const detailClose = () => setEdit(false);
    
   if(!editPost) {
@@ -43,7 +43,7 @@ const Edit = ({setEdit, post }) => {
    );
 } 
   return (
-  <EditForm setEditPost = {setEditPost} editPost={editPost} setEdit={setEdit}/>
+  <EditForm post={post} setEditPost = {setEditPost} editPost={editPost} setEdit={setEdit}/>
 );
 
 }
