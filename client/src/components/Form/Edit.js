@@ -1,17 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import CloseIcon from '@material-ui/icons/Close';
 import { Paper, Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import moment from 'moment';
 
 import useStyles from './editStyle';
+import EditForm from './EditForm';
 
 const Edit = ({setEdit, post }) => {
   const classes = useStyles();
+  const [editPost , setEditPost] = useState(false)
   const user = JSON.parse(localStorage.getItem('profile'));
 
   const detailClose = () => setEdit(false);
-
+   
+  if(!editPost) {
    return (
     <Paper className={classes.editPaper} id="editPaper">
     <Card className={classes.card}>
@@ -34,10 +37,15 @@ const Edit = ({setEdit, post }) => {
    {!user?.result?.name ?
    (<Link to="/auth" style={{ textDecoration: 'none' }}><Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Sign in to edit</Button></Link>
    ):
-  (<Button className={classes.edit} variant="contained" size="small" maxWidth="xs">Edit</Button>
+  (<Button onClick={setEditPost} className={classes.edit} variant="contained" size="small" maxWidth="xs">Edit</Button>
   )}
   </Paper>
+   );
+} 
+  return (
+  <EditForm setEditPost = {setEditPost} editPost={editPost} setEdit={setEdit}/>
 );
+
 }
 
 export default Edit;

@@ -6,12 +6,21 @@ import { useDispatch , useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPost , updatePost } from '../../actions/posts';
 
-const Form =({ currentId, setCurrentId, setAddPost })=> {
+const EditForm =({ currentId, setCurrentId, setEditPost, setEdit, editPost})=> {
    const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' '})
    const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
    const dispatch = useDispatch();
    const classes = useStyles();
    const user = JSON.parse(localStorage.getItem('profile'))
+
+   const ctrlEditPost =()=> {
+       if (editPost) {
+         setEditPost(false);
+         setEdit(false);
+       } else {
+         setEditPost(true);
+       }
+  }
 
   useEffect (() => {
       if(post) setPostData(post);
@@ -21,8 +30,6 @@ const Form =({ currentId, setCurrentId, setAddPost })=> {
       setCurrentId(0)
       setPostData({ title:' ', message: ' ', tags: ' ', selectedField:' '});
    }
-
-  const closeAddPost = () => setAddPost(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +56,7 @@ if (!user?.result?.name) {
         <Typography className={classes.pleaseLogin}>
           Please Sign In to create your own memories and like other's memories.
         </Typography>
-        <Button className={classes.buttonClose} onClick={closeAddPost} variant="contained" color="secondary" size="small" fullWidth>Close</Button>
+        <Button className={classes.buttonClose} onClick={ctrlEditPost} variant="contained" color="secondary" size="small" fullWidth>Close</Button>
       </form>        
       </Paper>
     );
@@ -65,10 +72,10 @@ if (!user?.result?.name) {
         <div className={classes.fileInput}>
         <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-        <Button variant="contained" onClick={closeAddPost} color="secondary" size="small" fullWidth>Close</Button>
+        <Button variant="contained" onClick={ctrlEditPost} color="secondary" size="small" fullWidth>Close</Button>
       </form>
     </Paper>
    );
 };
 
-export default Form; 
+export default EditForm; 
