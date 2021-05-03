@@ -25,7 +25,7 @@
 
 - To build a Full Stack Web Application ReactJS, mongoDB, express, Node.js
 - Authentication & Login Practice Practice
-- Creating Realtime Chatting App where users can Create, Read, Update, Delete & Upload files
+- Creating Realtime Web App where users can Create, Read, Update, Delete & Upload files
 
 <!--USE TECH-->
 
@@ -139,6 +139,4 @@ npm i jwt-decode react-google-login
 
 -
 -
--
-
----
+- ***
