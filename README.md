@@ -38,7 +38,7 @@
   <img src="https://img.shields.io/badge/React-blue?style=flat-square&logo=React&logoColor=white"/>
   <img src="https://img.shields.io/badge/ReactRouter-32b7f0?&logoColor=white"/>
   <img src="https://img.shields.io/badge/ReactHooks-e1a9f5?&logoColor=white"/>
-  <img src="https://img.shields.io/badge/firebase-yellow?style=flat-square&logo=firebase&logoColor=white"/>
+  <img src="https://img.shields.io/badge/mongoDB-yellow?style=flat-square&logo=firebase&logoColor=white"/>
   <img src="https://img.shields.io/badge/Cloudinary-orange?style=flat-square&logoColor=white"/>
 
 </span>
