@@ -23,7 +23,7 @@
 
 ## Purpose of the project
 
-- To build a Full Stack Web Application ReactJS, mongoDB, express, Node.js
+- To build a Full Stack Web Application using MongoDB - Express - React - Node.
 - Authentication & Login Practice Practice
 - Creating Realtime Web App where users can Create, Read, Update, Delete & Upload files
 
@@ -39,7 +39,6 @@
   <img src="https://img.shields.io/badge/ReactRouter-32b7f0?&logoColor=white"/>
   <img src="https://img.shields.io/badge/ReactHooks-e1a9f5?&logoColor=white"/>
   <img src="https://img.shields.io/badge/mongoDB-yellow?style=flat-square&logo=firebase&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Cloudinary-orange?style=flat-square&logoColor=white"/>
 
 </span>
 
@@ -247,5 +246,6 @@ export const signin = async (req, res) => {
 
 ## Lessons
 
-- Learned how to manage Authentication and Authorization based the local storage data and mongoDB
-- Mern Stack ReactJS project with CRUD.
+- MongoDB for the database
+- Node & Express for the server-side
+- React for the client-side
