@@ -86,14 +86,128 @@ npm i jwt-decode react-google-login
 
 ---
 
-<div>
-<img width="45%" alt="스크린샷 2021-01-16 오후 4 09 47" src="https://user-images.githubusercontent.com/59603575/105945952-9f1ab800-60a9-11eb-80e2-4324282ea38b.png">
-<img width="46%" alt="gif" src="https://user-images.githubusercontent.com/59603575/105945809-5400a500-60a9-11eb-96f3-7c2363c35aad.gif">
-</div>
+|Client Side|
+
+1. Action Types
+   This App has various Actions such as Create, Update, Delete, Fetch, Like, Authentication and Logout
+   These actions are stored in the actionsTypes.js file in constants.
+
+```Javascript
+export const CREATE = 'CREATE';
+export const UPDATE = 'UPDATE';
+export const DELETE = 'DELETE';
+export const FETCH_ALL = 'FETCH_ALL';
+.
+.
+```
+
+2. Actions (Auth / Post)
+   All the actions including Like, Update, Delete, Create, Auth and Logout has their functions in actions folder
+   ex) Like Post
+
+```javascript
+export const likePost = (id) => async (dispatch) => {
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  try {
+    const { data } = await api.likePost(id, user?.token);
+
+    dispatch({ type: LIKE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+3. Reducers
+   When actions are created, reducers receive those actions to dispatch the data according to the actions.
+
+```javascript
+import {
+  FETCH_ALL,
+  CREATE,
+  UPDATE,
+  DELETE,
+  LIKE,
+} from "../constants/actionTypes";
+
+export default (posts = [], action) => {
+  switch (action.type) {
+    case FETCH_ALL:
+      return action.payload;
+    case LIKE:
+      return posts.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
+    case CREATE:
+      return [...posts, action.payload];
+    case UPDATE:
+      return posts.map((post) =>
+        post._id === action.payload._id ? action.payload : post
+      );
+    case DELETE:
+      return posts.filter((post) => post._id !== action.payload);
+    default:
+      return posts;
+  }
+};
+```
+
+|Server Side|
+
+1. Models
+   In models, the data Schema for auth, and post are created like below
+
+```Javascript
+import mongoose from "mongoose";
+
+const userSchema = mongoose.Schema({
+  name: { type: String, required:  true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  id: { type: String },
+});
+
+export default mongoose.model("User", userSchema);
+
+```
+
+2. Controller
+   Using the schema, the actions like signin, signup, etc are controlled.
+
+```Javascript
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+
+import UserModal from "../models/user.js";
+
+const secret = 'test';
+
+export const signin = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const oldUser = await UserModal.findOne({ email });
+    if (!oldUser) return res.status(404).json({ message: "User doesn't exist" });
+    const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+    if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
+    const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
+    res.status(200).json({ result: oldUser, token });
+  } catch (err) {
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
+```
+
+3. Routes
+   End point of the routes are stored here.
+
+4. Middleware
+   Authorization by authentication are first controlled from Middleware and then it let the data released accordingly.
 
 ---
 
-## Architecture
+### Structure
 
 ```
 .
@@ -118,10 +232,6 @@ npm i jwt-decode react-google-login
 
 ```
 
-### Structure
-
-<img width="1680" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/105948977-49e1a500-60af-11eb-8249-133fc1b50e0e.png">
-
 ---
 
 ### Features
@@ -137,6 +247,5 @@ npm i jwt-decode react-google-login
 
 ## Lessons
 
--
--
-- ***
+- Learned how to manage Authentication and Authorization based the local storage data and mongoDB
+- Mern Stack ReactJS project with CRUD.
