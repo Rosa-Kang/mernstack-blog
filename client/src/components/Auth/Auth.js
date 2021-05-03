@@ -13,28 +13,26 @@ import { signin, signup } from '../../actions/auth';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
-
  const [form, setForm] = useState(initialState);
- const classes = useStyles();
- const history = useHistory();
- const dispatch = useDispatch();
- const [showPassword, setShowPassword] = useState(false);
- const [formData, setFormData] = useState();
  const [isSignup, setIsSignup] = useState(false);
+ const dispatch = useDispatch();
+ const history = useHistory(); 
+ const classes = useStyles();
 
+  const [showPassword, setShowPassword] = useState(false);
 
  const handleSubmit =(e)=> {
       e.preventDefault();
 
       if (isSignup) {
-        dispatch(signup(formData, history))
+        dispatch(signup(form, history))
       } else {
-        dispatch(signin(formData, history))     
+        dispatch(signin(form, history))     
       }
  }
 
  const handleChange=(e)=> {
-   setFormData({...formData,[e.target.name]: e.target.value});
+   setForm({...form,[e.target.name]: e.target.value});
  }
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
@@ -61,8 +59,6 @@ const Auth = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
     setShowPassword(false);
   };
-
-
 
  
  return (

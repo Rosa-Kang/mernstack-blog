@@ -18,6 +18,8 @@ const Navbar =()=> {
   const location = useLocation();
   const [currentId, setCurrentId] = useState(null);
 
+  // const nameSplit = user.result.name.split(' ');
+
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
 
@@ -38,12 +40,10 @@ const Navbar =()=> {
     setUser(JSON.parse(localStorage.getItem('profile')));
   }, [location]);
 
-
   const ctrlAddPost = () => {
     !addPost ?
     setAddPost(true) : setAddPost(true);
   }
-  
  
   return (
     <AppBar className={classes.appBar} position="static" color='inherit' maxwidth="xs">            

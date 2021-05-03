@@ -4,7 +4,7 @@ import FileBase from 'react-file-base64';
 import { useDispatch } from 'react-redux';
 
 import useStyles from './styles';
-import { createPost , updatePost } from '../../actions/posts';
+import { updatePost } from '../../actions/posts';
 
 const EditForm =({ post, currentId, setCurrentId, setEditPost, setEdit, editPost})=> {
    const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' '});
@@ -26,7 +26,7 @@ const EditForm =({ post, currentId, setCurrentId, setEditPost, setEdit, editPost
    }, [post])
 
   const clear = () => {
-      setCurrentId(0)
+      // setCurrentId(0)
       setPostData({ title:' ', message: ' ', tags: ' ', selectedField:' '});
    }
 
@@ -34,11 +34,14 @@ const EditForm =({ post, currentId, setCurrentId, setEditPost, setEdit, editPost
     e.preventDefault();
 
     if (currentId === 0) {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
-      clear();
+      alert('Please login to change your post');
+      setEditPost(false);
+      setEdit(false);
     } else {
       dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
       clear();
+      setEditPost(false);
+      setEdit(false);
     }
   };
 
@@ -46,7 +49,7 @@ if (!user?.result?.name) {
     return (
       <Paper id="form-div" className={classes.paper} >
         <form id="form" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${postData.title}"` : 'Create Your Memory'}</Typography>
+        <Typography variant="h6">{currentId ? `Editing "${postData.title}"` : 'Please sign in to edit'}</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
@@ -64,7 +67,7 @@ if (!user?.result?.name) {
    return (
        <Paper id="form-div" className={classes.paper} >
       <form id="form" autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-        <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
+        <Typography variant="h6">{currentId ? `Editing "${postData.title}"` : 'Edit a Memory'}</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
         <TextField name="message" variant="outlined" label="Message" fullWidth multiline rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
         <TextField name="tags" variant="outlined" label="Tags (coma separated)" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value.split(',') })} />
