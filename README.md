@@ -75,12 +75,14 @@ npm i jwt-decode react-google-login
 
 <div>
 <img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836328-efa72300-ab7a-11eb-95aa-8dcbe4cd5877.png">
-<img width="45%" height="400px" alt="img" src="https://user-images.githubusercontent.com/49248131/116836331-f2097d00-ab7a-11eb-8a63-6f6efe942572.png">
+<img width="45%" height="350px" alt="img" src="https://user-images.githubusercontent.com/49248131/116836331-f2097d00-ab7a-11eb-8a63-6f6efe942572.png">
 </div>
 
 <div>
 <img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
-<img width="45%" alt="gif" src="https://user-images.githubusercontent.com/59603575/105945799-4e0ac400-60a9-11eb-987c-ef00cf142905.gif">
+<img width="45%" alt="gif" src="">
+
+
 </div>
 
 ### Functionality Pages
