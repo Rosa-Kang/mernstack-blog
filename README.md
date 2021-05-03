@@ -23,9 +23,9 @@
 
 ## Purpose of the project
 
-- React Hooks Practice
+- To build a Full Stack Web Application ReactJS, mongoDB, express, Node.js
 - Authentication & Login Practice Practice
-- Creating Realtime Chatting App using Chategine.io
+- Creating Realtime Chatting App where users can Create, Read, Update, Delete & Upload files
 
 <!--USE TECH-->
 
@@ -43,13 +43,13 @@
 
 </span>
 
-### Dependancy
+### Dependency
 
 ##Server side##
 npm i body-parser : to POST request
 npm i cors : Cross Origin Resource Sharing : a middleware to Connect/ Express
 npm i express : a framework for creating the Routing of our application
-npm i mongoose : to creat models of our POST
+npm i mongoose : to create models of our POST
 npm i nodemon : auto reset the server
 npm i bcryptjs jsonwebtoken
 
@@ -58,7 +58,7 @@ npm i @material-ui/core : ui kit used in this project
 npm i axios : for making api request
 npm i moment : library working with time and date
 npm i react-file-base
-npm i redux redux-thunk : asyncronous actions with redux
+npm i redux redux-thunk : asynchronous actions with redux
 npm i jwt-decode react-google-login
 
 ---
@@ -97,22 +97,28 @@ npm i jwt-decode react-google-login
 
 ## Architecture
 
-paper-kit-react
+```
 .
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-├── Components
-│  ├── ChatFeed.jsx
-│  ├── LoginForm.jsx
-│  ├── MessageForm.jsx
-│  ├── MyMessage.jsx
-│  └── TheirMessage.jsx
+│  
+└── Client
+│    └── src
+│    │    ├── actions
+│    │    ├── api
+│    │    ├── components
+│    │    ├── constants
+│    │    └── reducers
+│    │
+│    ├── App.js
+│    └── index.js
 │ 
-├── App.js
-└── index.js
+└── Server
+     ├── controller
+     ├── middleware
+     ├── models
+     ├── routes
+     └── index.js
+
+```
 
 ### Structure
 
@@ -133,8 +139,8 @@ paper-kit-react
 
 ## Lessons
 
-- useState
-- Authentification using LocalStorage
-- **Mistake** when creating input box, if onChange function is not properly stated insid the input Element, it doesnt receive any input letters!
+-
+-
+-
 
 ---
