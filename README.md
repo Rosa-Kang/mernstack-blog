@@ -66,7 +66,7 @@ npm i jwt-decode react-google-login
 
 ## About The Project
 
-[Demo link](url'https://flymango.netlify.app/')
+[Demo link](https://flymango.netlify.app/)
 
 ### Landing Page
 
