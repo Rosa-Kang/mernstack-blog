@@ -80,12 +80,11 @@ npm i jwt-decode react-google-login
 <div>
 <img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
 <img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
-
 </div>
-
 ### Functionality Pages
 
 ---
+
 
 |Client Side|
 
