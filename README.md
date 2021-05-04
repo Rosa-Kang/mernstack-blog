@@ -236,7 +236,7 @@ export const signin = async (req, res) => {
 
 ### Features
 
-<img width="900" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
+<img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
 
 
 1. LoginForm receives and execute the event Handling Function based user information from Landing Page.
