@@ -1,4 +1,4 @@
-# Flymang
+# Flymango
 #### Flymango is a web application where users can share their good memories from their trips and search for the next destination.
 ---
 
@@ -74,11 +74,13 @@ npm i jwt-decode react-google-login
 
 <div>
 <img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836328-efa72300-ab7a-11eb-95aa-8dcbe4cd5877.png">
-<img width="45%" height="250px" alt="img" src="https://user-images.githubusercontent.com/49248131/116836331-f2097d00-ab7a-11eb-8a63-6f6efe942572.png">
+<img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116952055-8ab50100-ac3e-11eb-8313-f01a11214ab0.png">
 </div>
 
 <div>
 <img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
+<img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
+
 </div>
 
 ### Functionality Pages
