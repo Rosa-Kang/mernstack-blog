@@ -74,7 +74,7 @@ npm i jwt-decode react-google-login
 
 <div>
 <img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836328-efa72300-ab7a-11eb-95aa-8dcbe4cd5877.png">
-<img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116952055-8ab50100-ac3e-11eb-8313-f01a11214ab0.png">
+<img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116952602-e5029180-ac3f-11eb-83a4-dcf1ae820e48.png">
 </div>
 
 <div>
