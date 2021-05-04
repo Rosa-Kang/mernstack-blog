@@ -74,11 +74,11 @@ npm i jwt-decode react-google-login
 
 <div>
 <img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836328-efa72300-ab7a-11eb-95aa-8dcbe4cd5877.png">
-<img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116952602-e5029180-ac3f-11eb-83a4-dcf1ae820e48.png">
+<img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
 </div>
 
 <div>
-<img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
+<img width="45%" alt="img" src="https://user-images.githubusercontent.com/49248131/116952602-e5029180-ac3f-11eb-83a4-dcf1ae820e48.png">
 <img width="46%" alt="img" src="https://user-images.githubusercontent.com/49248131/116836333-f46bd700-ab7a-11eb-9157-fd6579ade191.png">
 </div>
 ### Functionality Pages
@@ -236,7 +236,8 @@ export const signin = async (req, res) => {
 
 ### Features
 
-<img width="1680" style="margin:0; padding:0;" alt="스크린샷 2021-01-16 오후 4 10 08" src="https://user-images.githubusercontent.com/59603575/105949828-b4dfab80-60b0-11eb-971d-d4644c5701db.png">
+<img width="900" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
+
 
 1. LoginForm receives and execute the event Handling Function based user information from Landing Page.
 2. Once the Use loggen-in, the chatting room is visible and also the user can create a new chatting room to invite people
