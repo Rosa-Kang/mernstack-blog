@@ -2,7 +2,6 @@
 #### Flymango is a web application where users can share their good memories from their trips and search for the next destination.
 ---
 
-<!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
