@@ -1,5 +1,7 @@
 # Flymango
+
 #### Flymango is a web application where users can share their good memories from their trips and search for the next destination.
+
 ---
 
 <details open="open">
@@ -23,8 +25,9 @@
 ## Purpose of the project
 
 - To build a Full Stack Web Application using MongoDB - Express - React - Node.
-- Authentication & Login Practice Practice
-- Creating Realtime Web App where users can Create, Read, Update, Delete & Upload files
+- Authentication & Login with JWT (Json Web Token)
+- Creating Realtime Web App with CRUD function
+- App with Redux Framework with React Hooks
 
 <!--USE TECH-->
 
@@ -44,20 +47,20 @@
 ### Dependency
 
 ##Server side##
-npm i body-parser : to POST request
-npm i cors : Cross Origin Resource Sharing : a middleware to Connect/ Express
-npm i express : a framework for creating the Routing of our application
-npm i mongoose : to create models of our POST
-npm i nodemon : auto reset the server
-npm i bcryptjs jsonwebtoken
+. npm i body-parser : to POST request
+. npm i cors : Cross Origin Resource Sharing : a middleware to Connect/ Express
+. npm i express : a framework for creating the Routing of our application
+. npm i mongoose : to create models of our POST
+. npm i nodemon : auto reset the server
+. npm i bcryptjs jsonwebtoken
 
 ##Client side##
-npm i @material-ui/core : ui kit used in this project
-npm i axios : for making api request
-npm i moment : library working with time and date
-npm i react-file-base
-npm i redux redux-thunk : asynchronous actions with redux
-npm i jwt-decode react-google-login
+. npm i @material-ui/core : ui kit used in this project
+. npm i axios : for making api request
+. npm i moment : library working with time and date
+. npm i react-file-base
+. npm i redux redux-thunk : asynchronous actions with redux
+. npm i jwt-decode react-google-login
 
 ---
 
@@ -84,25 +87,15 @@ npm i jwt-decode react-google-login
 
 ---
 
-
 |Client Side|
 
 1. Action Types
-   This App has various Actions such as Create, Update, Delete, Fetch, Like, Authentication and Logout
+   This App has various Actions such as Login/Logout, Sign-in with google, new Post, Like and upload files.
    These actions are stored in the actionsTypes.js file in constants.
 
-```Javascript
-export const CREATE = 'CREATE';
-export const UPDATE = 'UPDATE';
-export const DELETE = 'DELETE';
-export const FETCH_ALL = 'FETCH_ALL';
-.
-.
-```
-
-2. Actions (Auth / Post)
-   All the actions including Like, Update, Delete, Create, Auth and Logout has their functions in actions folder
-   ex) Like Post
+. Action Type - Like
+All the actions including Like, Update, Delete, Create, Auth and Logout has their functions in actions folder
+ex) Like Post
 
 ```javascript
 export const likePost = (id) => async (dispatch) => {
@@ -118,7 +111,7 @@ export const likePost = (id) => async (dispatch) => {
 };
 ```
 
-3. Reducers
+2. Redux - Reducers
    When actions are created, reducers receive those actions to dispatch the data according to the actions.
 
 ```javascript
@@ -204,7 +197,36 @@ export const signin = async (req, res) => {
 4. Middleware
    Authorization by authentication are first controlled from Middleware and then it let the data released accordingly.
 
----
+```JavaScript
+import jwt from "jsonwebtoken";
+const secret = 'test';
+
+const auth = async (req, res, next) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const isCustomAuth = token.length < 500;
+
+    let decodedData;
+
+    if (token && isCustomAuth) {
+      decodedData = jwt.verify(token, secret);
+
+      req.userId = decodedData?.id;
+    } else {
+      decodedData = jwt.decode(token);
+
+      req.userId = decodedData?.sub;
+    }
+
+    next();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default auth;
+
+```
 
 ### Structure
 
@@ -236,7 +258,6 @@ export const signin = async (req, res) => {
 ### Features
 
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
-
 
 1. LoginForm receives and execute the event Handling Function based user information from Landing Page.
 2. Once the Use loggen-in, the chatting room is visible and also the user can create a new chatting room to invite people
