@@ -16,7 +16,7 @@ const Navbar =()=> {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const [currentId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState(0);
 
   // const nameSplit = user.result.name.split(' ');
 

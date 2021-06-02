@@ -25,12 +25,14 @@ const Form =({ currentId, setCurrentId, setAddPost })=> {
   const closeAddPost = () => setAddPost(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //not to get the refresh in the browser.
+    
     if (currentId === 0) {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
       clear();
       setAddPost(false)
     } else {
+      
       dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
       clear();
       setAddPost(false)
