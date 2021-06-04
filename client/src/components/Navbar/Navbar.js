@@ -17,8 +17,9 @@ const Navbar =()=> {
   const history = useHistory();
   const location = useLocation();
   const [currentId, setCurrentId] = useState(0);
+  const rename= user?.result.name;
+  const shorten = rename?.substr(0,rename.indexOf(' '));
 
-  // const nameSplit = user.result.name.split(' ');
 
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
@@ -44,6 +45,8 @@ const Navbar =()=> {
     !addPost ?
     setAddPost(true) : setAddPost(true);
   }
+  
+
  
   return (
     <AppBar className={classes.appBar} position="static" color='inherit' maxwidth="xs">            
@@ -55,7 +58,7 @@ const Navbar =()=> {
              {user ? (
           <div className={classes.profile} >
             <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-            <Typography className={classes.userName} variant="h6">{user.result.name}</Typography>
+            <Typography className={classes.userName} variant="h6">Hi! {shorten}</Typography>
             <Button onClick={logout} variant="contained" className={classes.rightBtn} >Logout</Button>
           </div>
         ) : (<Link style={{ textDecoration: 'none' }} to="/auth" ><Button className={classes.rightBtn} variant="contained" component="span" >Sign in</Button></Link>)}
