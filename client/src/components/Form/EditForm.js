@@ -7,7 +7,7 @@ import useStyles from './styles';
 import { updatePost } from '../../actions/posts';
 
 const EditForm =({ post, currentId, setEditPost, setEdit, editPost})=> {
-   const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' '});
+   const [postData, setPostData] = useState({ title:' ', message: ' ', tags: ' ', selectedField:' ', likes:' '});
    const dispatch = useDispatch();
    const classes = useStyles();
    const user = JSON.parse(localStorage.getItem('profile'));
@@ -34,14 +34,8 @@ const EditForm =({ post, currentId, setEditPost, setEdit, editPost})=> {
    }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-   
-    // if (postID !== userID) {
-    //   alert(`You cannot edit other's post`);
-    //   setEditPost(false);
-    //   setEdit(false);
-    // } else {
-      dispatch(updatePost(currentId, { ...postData, name: user?.result?.name }));
+      e.preventDefault();
+      dispatch(updatePost(post._id, { ...postData, name: user?.result?.name }));
       clear();
       setEditPost(false);
       setEdit(false);
