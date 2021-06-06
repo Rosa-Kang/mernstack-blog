@@ -260,7 +260,7 @@ export default auth;
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
 
 1. LoginForm receives and execute the event Handling Function based user information from Landing Page.
-2. Once the Use loggen-in, the chatting room is visible and also the user can create a new chatting room to invite people
+2. Once the Use loggen-in, user can have the authority to like other's posts, and do crud functionality (create, read, update, and delete) for the user's own post.
 
 ---
 
