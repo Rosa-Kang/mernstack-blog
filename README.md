@@ -4,8 +4,7 @@
 
 ---
 
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+<details open="open"><summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li><a href="#reason">Purpose of the Project</a></li>
     <li><a href="#use-tech">Use tech</a></li>
