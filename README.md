@@ -264,7 +264,7 @@ export default auth;
 ---
 1. Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
 
-   ```
+```javascript
    const handleSubmit =(e)=> {
       e.preventDefault();
 
@@ -296,11 +296,11 @@ export default auth;
    console.log(error);
   }
 
-   ```
+```
 ---
 2. Reducer > Auth.js : Once the action is dispatched to a reduce, based on the action type, it will be sent to reduces. In this case the action type was Auth so the Auth.js in reduces folder will be executed and the {state & action} will be received into Reducer.
 
-  ```
+```javascript
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {
     
@@ -317,7 +317,7 @@ const authReducer = (state = { authData: null }, action) => {
   }
 };
 
-  ```
+```
 ---
 3. 
 
