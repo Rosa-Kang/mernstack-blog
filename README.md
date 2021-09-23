@@ -260,9 +260,9 @@ export default auth;
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
 
 ---
-|Login Process|
+**|Login Process|**
 
-1. Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
+1. Client / Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
 
 ```javascript
    const handleSubmit =(e)=> {
@@ -298,7 +298,7 @@ export default auth;
 
 ```
 ---
-2. Reducer > Auth.js : Once the action is dispatched to a reduce, based on the action type, it will be sent to reduces. In this case the action type was Auth so the Auth.js in reduces folder will be executed and the {state & action} will be received into Reducer.
+2. Client / Reducer > Auth.js : Once the action is dispatched to a reduce, based on the action type, it will be sent to reduces. In this case the action type was Auth so the Auth.js in reduces folder will be executed and the {state & action} will be received into Reducer.
 
 ```javascript
 const authReducer = (state = { authData: null }, action) => {
