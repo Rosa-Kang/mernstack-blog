@@ -258,10 +258,61 @@ export default auth;
 ### Features
 
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
+|Login Process|
+1. Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
+   ```
+   const handleSubmit =(e)=> {
+      e.preventDefault();
 
-1. LoginForm receives and execute the event Handling Function based user information from Landing Page.
-2. Once the Use loggen-in, user can have the authority to like other's posts, and do crud functionality (create, read, update, and delete) for the user's own post.
+      if (isSignup) {
+        dispatch(signup(form, history))
+      } else {
+        dispatch(signin(form, history))     
+      }
+ }
 
+ const handleChange=(e)=> {
+   setForm({...form,[e.target.name]: e.target.value});
+ }
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+   try {
+     dispatch({type: 'AUTH', data:{result, token}});
+
+     history.push('/');
+   } catch (error) {
+     console.log(error);
+   }
+  
+  }
+
+  const googleFailure =( error ) => {
+   console.log("Google Sign In was unsuccessful. Try Again Later")
+   console.log(error);
+  }
+
+   ```
+2. Reducer > Auth.js : Once the action is dispatched to a reduce, based on the action type, it will be sent to reduces. In this case the action type was Auth so the Auth.js in reduces folder will be executed and the {state & action} will be received into Reducer.
+```
+const authReducer = (state = { authData: null }, action) => {
+  switch (action.type) {
+    
+    case actionType.AUTH:
+      localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
+
+      return { ...state, authData: action.data, loading: false, errors: null };
+    case actionType.LOGOUT:
+      localStorage.clear();
+
+      return { ...state, authData: null, loading: false, errors: null };
+    default:
+      return state;
+  }
+};
+
+```
+3. 
 ---
 
 <div id="new"/>
