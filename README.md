@@ -258,10 +258,10 @@ export default auth;
 ### Features
 
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
----
 
-|Login Process|
 ---
+|Login Process|
+
 1. Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
 
 ```javascript
