@@ -12,7 +12,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
     </li>
-    <li><a href="#structure">Architecture & Functionality</a></li>
+    <li><a href="#authentication">Authentication Process</a></li>
     <li><a href="#new">Lessons</a></li>
     <li><a href="#reference">Reference</a></li>
   </ol>
@@ -116,6 +116,7 @@
 <img width="450" style="margin:10; padding:0;" alt="shot" src="https://user-images.githubusercontent.com/49248131/116954678-788a9100-ac45-11eb-821e-24bd620ada35.png">
 
 ---
+<div id="authentication"/>
 **|Login Process|**
 
 1. Client / Auth.js : The Login Information entered by users received from Auth.js file and here the action is dispatched so the data is sent to Reducers.
