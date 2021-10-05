@@ -44,6 +44,8 @@
 </span>
 
 ### Dependency
+After 'git-clone', you can simply run this application from your local server by installing each dependencies from Client and Server
+Client : yarn add jwt-decode react-google-login / Server: yarn add bcrypt jsonwebtoken
 
 ##Server side##
 . npm i body-parser : to POST request
